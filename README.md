@@ -9,6 +9,20 @@ The goal is not to replace vendor diagnostics. It is a small, auditable first pa
 portfolio demos, burn-in logs, and lab notebooks where you want every threshold and decision
 rule to be inspectable.
 
+## Research + Money Thesis
+
+**Research question:** which transparent telemetry features detect optical-module drift
+early enough to guide the next validation action before alarms become customer-visible
+failures?
+
+**Money question:** co-packaged and near-packaged optics move optical engines closer to
+hot, high-value compute packages. Reliability, thermal behavior, and serviceability are
+commercial adoption blockers, not just lab details.
+
+**Engineering evidence:** the report measures detection events, severity, affected
+channels, likely failure mode, and a concrete next validation check using EWMA, robust
+z-scores, sustained-change heuristics, and guardrail thresholds.
+
 ## Why this exists
 
 Optical-module telemetry often arrives as CSV snapshots from firmware, CMIS tooling, bench
