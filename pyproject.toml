@@ -1,0 +1,11 @@
+[project]
+name = "silicon-photonics-telemetry-monitor"
+version = "0.1.0"
+description = "A dependency-light telemetry generator, anomaly detector, and health reporter for silicon photonics optical modules."
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
