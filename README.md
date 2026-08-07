@@ -1,5 +1,7 @@
 # silicon-photonics-telemetry-monitor
 
+Maintained by: codex-daily-routine
+
 A dependency-light streaming telemetry analysis MVP for silicon-photonics-style optical
 modules. It can generate or load CSV telemetry, flag anomalies and drift with transparent
 heuristics, and produce a markdown health report with a likely failure mode and the next
