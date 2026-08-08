@@ -5,7 +5,7 @@ from collections import Counter
 from datetime import datetime
 
 from .analysis import AnalysisConfig, AnalysisResult
-from .diagnosis import infer_health
+from .diagnosis import infer_health, maintenance_priority
 from .models import AnomalyEvent, TelemetryRow
 
 
@@ -79,6 +79,19 @@ def build_health_report(
             )
     else:
         lines.append("No events to list.")
+
+    priorities = maintenance_priority(result.events)
+    lines.extend(["", "## Maintenance Priority", ""])
+    if priorities:
+        lines.append("| module | ch | score | primary metric | events | recommended action |")
+        lines.append("| --- | ---: | ---: | --- | ---: | --- |")
+        for row in priorities:
+            lines.append(
+                f"| {row['module_id']} | {row['channel']} | {row['priority_score']:.3f} | "
+                f"{row['primary_metric']} | {row['event_count']} | {row['recommended_action']} |"
+            )
+    else:
+        lines.append("No module/channel requires priority maintenance from this run.")
 
     lines.extend(["", "## Metric Snapshot", ""])
     lines.append("| module | ch | metric | latest | min | max | mean | slope/sample | last robust z |")

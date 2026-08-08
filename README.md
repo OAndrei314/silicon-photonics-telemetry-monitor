@@ -23,7 +23,8 @@ commercial adoption blockers, not just lab details.
 
 **Engineering evidence:** the report measures detection events, severity, affected
 channels, likely failure mode, and a concrete next validation check using EWMA, robust
-z-scores, sustained-change heuristics, and guardrail thresholds.
+z-scores, sustained-change heuristics, guardrail thresholds, and maintenance-priority
+ranking for module/channel triage.
 
 ## Why this exists
 
@@ -77,14 +78,14 @@ loader, so large files do not need to be read into memory before analysis.
 - **Guardrails:** applies simple optical-module sanity bounds for temperature, supply voltage,
   BER, optical power, laser bias, TEC current, and insertion loss.
 
-The report includes the top events, per-metric snapshots, the inferred failure mode, and a
-specific validation check to run next.
+The report includes the top events, maintenance priority, per-metric snapshots, the
+inferred failure mode, and a specific validation check to run next.
 
 ## Status
 
-This is an MVP: deterministic generator, CSV loader, streaming analyzer, markdown report, CLI,
-and network-free tests. Natural next steps are CMIS register ingestion, per-module threshold
-profiles, and richer plotting.
+This is an MVP: deterministic generator, CSV loader, streaming analyzer, maintenance
+priority ranking, markdown report, CLI, and network-free tests. Natural next steps are
+CMIS register ingestion, per-module threshold profiles, and richer plotting.
 
 ## License
 

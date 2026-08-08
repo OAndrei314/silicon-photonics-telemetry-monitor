@@ -1,6 +1,6 @@
 from sptelemetry.analysis import AnalysisConfig, analyze_rows
 from sptelemetry.data import generate_rows
-from sptelemetry.diagnosis import infer_health
+from sptelemetry.diagnosis import infer_health, maintenance_priority
 
 
 def test_nominal_stream_stays_nominal():
@@ -25,6 +25,12 @@ def test_fiber_contamination_points_to_receive_loss():
     assert "contamination" in likely_mode
     assert "endfaces" in next_check
     assert {"rx_power_dbm", "loss_db"} <= metrics
+
+    priorities = maintenance_priority(result.events)
+    assert priorities
+    priority_metrics = {row["primary_metric"] for row in priorities}
+    assert priority_metrics & {"rx_power_dbm", "loss_db", "ber"}
+    assert any("fiber" in row["recommended_action"] or "connector" in row["recommended_action"] for row in priorities)
 
 
 def test_laser_aging_points_to_bias_headroom():

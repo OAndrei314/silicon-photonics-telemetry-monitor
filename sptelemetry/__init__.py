@@ -4,6 +4,7 @@ from __future__ import annotations
 from .analysis import AnalysisConfig, AnalysisResult, analyze_rows
 from .data import FIELDNAMES, generate_csv, iter_csv
 from .models import AnomalyEvent, MetricSummary, TelemetryRow
+from .diagnosis import maintenance_priority
 from .report import build_health_report
 
 __all__ = [
@@ -17,4 +18,5 @@ __all__ = [
     "build_health_report",
     "generate_csv",
     "iter_csv",
+    "maintenance_priority",
 ]
