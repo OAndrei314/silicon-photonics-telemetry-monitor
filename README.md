@@ -8,23 +8,8 @@ heuristics, and produce a markdown health report with a likely failure mode and 
 bench validation check.
 
 The goal is not to replace vendor diagnostics. It is a small, auditable first pass for
-portfolio demos, burn-in logs, and lab notebooks where you want every threshold and decision
-rule to be inspectable.
-
-## Research + Money Thesis
-
-**Research question:** which transparent telemetry features detect optical-module drift
-early enough to guide the next validation action before alarms become customer-visible
-failures?
-
-**Money question:** co-packaged and near-packaged optics move optical engines closer to
-hot, high-value compute packages. Reliability, thermal behavior, and serviceability are
-commercial adoption blockers, not just lab details.
-
-**Engineering evidence:** the report measures detection events, severity, affected
-channels, likely failure mode, and a concrete next validation check using EWMA, robust
-z-scores, sustained-change heuristics, guardrail thresholds, and maintenance-priority
-ranking for module/channel triage.
+burn-in logs and lab notebooks where every threshold and decision rule should be
+inspectable.
 
 ## Why this exists
 
