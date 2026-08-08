@@ -1,5 +1,7 @@
 # silicon-photonics-telemetry-monitor
 
+Maintained by: codex-daily-routine
+
 A dependency-light streaming telemetry analysis MVP for silicon-photonics-style optical
 modules. It can generate or load CSV telemetry, flag anomalies and drift with transparent
 heuristics, and produce a markdown health report with a likely failure mode and the next
@@ -8,6 +10,20 @@ bench validation check.
 The goal is not to replace vendor diagnostics. It is a small, auditable first pass for
 portfolio demos, burn-in logs, and lab notebooks where you want every threshold and decision
 rule to be inspectable.
+
+## Research + Money Thesis
+
+**Research question:** which transparent telemetry features detect optical-module drift
+early enough to guide the next validation action before alarms become customer-visible
+failures?
+
+**Money question:** co-packaged and near-packaged optics move optical engines closer to
+hot, high-value compute packages. Reliability, thermal behavior, and serviceability are
+commercial adoption blockers, not just lab details.
+
+**Engineering evidence:** the report measures detection events, severity, affected
+channels, likely failure mode, and a concrete next validation check using EWMA, robust
+z-scores, sustained-change heuristics, and guardrail thresholds.
 
 ## Why this exists
 
